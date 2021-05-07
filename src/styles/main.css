@@ -160,6 +160,10 @@ button[name='drawer'] {
   font-size: 14px;
 }
 
+.restaurants {
+  padding: 20px;
+}
+
 .restaurant-list {
   display: -ms-grid;
   display: grid;
