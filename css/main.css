@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 * {
   font-family: 'Poppins', sans-serif;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -32,19 +32,19 @@ header {
   width: 100%;
   padding: 0 20px;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   color: #fafafa;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #443850;
   height: 65px;
   -webkit-box-shadow: 16px 16px 16px rgba(0, 0, 0, 0.3);
-  box-shadow: 16px 16px 16px rgba(0, 0, 0, 0.3);
+          box-shadow: 16px 16px 16px rgba(0, 0, 0, 0.3);
 }
 
 header h1.app-title {
@@ -53,7 +53,7 @@ header h1.app-title {
 
 nav#drawer {
   -webkit-transform: translateX(-150%);
-  transform: translateX(-150%);
+          transform: translateX(-150%);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
@@ -83,7 +83,7 @@ nav#drawer .nav-list {
 
 #drawer.open {
   -webkit-transform: translateX(0);
-  transform: translateX(0);
+          transform: translateX(0);
 }
 
 button[name='drawer'] {
@@ -111,18 +111,8 @@ button[name='drawer'] {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(rgba(0, 0, 0, 0.3)),
-    to(rgba(0, 0, 0, 0.7))
-  );
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.7)
-  );
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.7)));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
   top: 0;
   z-index: 2;
 }
@@ -176,19 +166,19 @@ button[name='drawer'] {
   overflow: hidden;
   padding-bottom: 20px;
   -webkit-box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+          box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 .card:hover {
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .card:hover .card-img img {
   -webkit-transform: scale(1.2);
-  transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .card-img {
@@ -208,8 +198,8 @@ button[name='drawer'] {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 10px 20px;
 }
 
@@ -226,7 +216,7 @@ button[name='drawer'] {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   padding: 0 20px;
 }
 
@@ -263,118 +253,6 @@ button[name='drawer'] {
   color: #443850;
 }
 
-.restaurant {
-  padding: 0 20px 20px 20px;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-  grid-template-columns: 1fr;
-}
-
-.restaurant-img {
-  width: 100%;
-  height: 300px;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-
-.restaurant-img img {
-  height: 100%;
-}
-
-.restaurant-detail__heading {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  color: #443850;
-  padding: 20px;
-  background-color: #fafafa;
-  color: #443850;
-  border-radius: 20px;
-  border: 2px solid #443850;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-.restaurant-detail__heading h3 {
-  font-size: 1.5em;
-}
-
-.restaurant-detail__heading p {
-  font-size: 1.5em;
-}
-
-.restaurant-detail__heading:hover {
-  color: #fafafa;
-  background-color: #443850;
-}
-
-.restaurant-detail__categories {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  background-color: #fafafa;
-  grid-gap: 10px;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.restaurant-detail__categories p {
-  display: inline-block;
-  background-color: #fafafa;
-  padding: 15px;
-  border-radius: 20px;
-  border: 2px solid #443850;
-}
-
-.restaurant-detail__description {
-  padding: 20px;
-  background-color: #fafafa;
-  border-radius: 20px;
-  border: 2px solid #443850;
-  margin-bottom: 10px;
-}
-
-.restaurant-detail__location {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 2fr;
-  grid-template-columns: 1fr 2fr;
-  padding: 20px;
-  background-color: #fafafa;
-  border-radius: 20px;
-  border: 2px solid #443850;
-  margin-bottom: 10px;
-}
-
-.cta {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-}
-
-.cta a {
-  border-radius: 15px;
-  width: 100%;
-  text-align: center;
-  background-color: #443850;
-  padding: 15px;
-  color: #fafafa;
-  text-decoration: none;
-  display: inline-block;
-}
-
 footer {
   margin-top: 20px;
   background-color: #443850;
@@ -391,21 +269,8 @@ footer {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     row-gap: 10px;
-  }
-  .restaurant {
-    padding-left: 0 60px 60px 60px;
-    grid-gap: 20px;
-    width: 80vw;
-    margin: auto;
-  }
-  .restaurant-img {
-    width: 100%;
-    height: 100%;
-  }
-  .restaurant-img img {
-    width: 100%;
   }
 }
 
@@ -425,7 +290,7 @@ footer {
     position: relative;
     padding-bottom: 20px;
     -webkit-transform: translateX(0);
-    transform: translateX(0);
+            transform: translateX(0);
   }
   nav#drawer a {
     display: inline;
@@ -484,22 +349,8 @@ footer {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
-  }
-  .restaurant {
-    -ms-grid-columns: 1.5fr 1fr;
-    grid-template-columns: 1.5fr 1fr;
-    padding-left: 0 60px 60px 60px;
-    grid-gap: 20px;
-  }
-  .restaurant-img {
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
-  }
-  .restaurant-img img {
-    width: 100%;
   }
 }
 /*# sourceMappingURL=main.css.map */

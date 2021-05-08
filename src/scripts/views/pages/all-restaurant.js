@@ -12,6 +12,10 @@ const AllRestaurant = {
   async afterRender() {
     const restaurants = await DicodingRestaurantSource.allRestaurants();
     const restaurantsContainer = document.querySelector('.restaurant-list');
+    const exploreTitle = document.querySelector('.explore-title');
+    exploreTitle.innerHTML = 'Explore Restaurant';
+    const exploreSubtitle = document.querySelector('.explore-subtitle');
+    exploreSubtitle.innerHTML = `Find  Restaurant You Love The Most`;
     restaurants.forEach((restaurant) => {
       restaurantsContainer.innerHTML += `
       <div class="card">
