@@ -1,11 +1,15 @@
 import DicodingRestaurantSource from '../../data/dicoding-restaurant';
 import CONFIG from '../../globals/config';
 import UrlParser from '../../routes/url-parser';
+import LikeButtonInitiator from '../../utils/like-button-initiator';
+import { createLikeButtonTemplate } from '../template/template-creator';
 
 const Detail = {
   async render() {
     return `
     <div class="restaurant"></div>
+    <div id="likeButtonContainer"></div>
+
     `;
   },
 
@@ -13,6 +17,7 @@ const Detail = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await DicodingRestaurantSource.detailRestaurant(url.id);
     const restaurantDetailContainer = document.querySelector('.restaurant');
+
     const exploreTitle = document.querySelector('.explore-title');
     const exploreSubtitle = document.querySelector('.explore-subtitle');
     exploreSubtitle.innerHTML = `${restaurant.restaurant.categories[0].name} - ${restaurant.restaurant.categories[1].name}`;
@@ -69,6 +74,11 @@ const Detail = {
           </div>
         </div>
     `;
+
+    LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      restaurant: restaurant.restaurant,
+    });
   },
 };
 

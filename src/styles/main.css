@@ -496,10 +496,27 @@ footer {
   .restaurant-img {
     width: 100%;
     height: 100%;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
   }
   .restaurant-img img {
     width: 100%;
   }
 }
 /*# sourceMappingURL=main.css.map */
+
+.like {
+  font-size: 18px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background-color: #db5461;
+  color: white;
+  border: 0;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
