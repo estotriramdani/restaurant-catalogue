@@ -1,19 +1,23 @@
 import DicodingRestaurantSource from '../../data/dicoding-restaurant';
 import CONFIG from '../../globals/config';
+import removePreloader from '../../utils/remove-preloader';
 
 const AllRestaurant = {
   async render() {
     return `
       <div class="restaurant-list"></div>
+      <div class="preloader"><div id="loading"></div></div>
     `;
   },
 
   async afterRender() {
+    removePreloader();
+
     const restaurants = await DicodingRestaurantSource.allRestaurants();
     const restaurantsContainer = document.querySelector('.restaurant-list');
-
     const exploreTitle = document.querySelector('.explore-title');
     const exploreSubtitle = document.querySelector('.explore-subtitle');
+
     exploreTitle.innerHTML = 'Explore Restaurant';
     exploreSubtitle.innerHTML = `Find  Restaurant You Love The Most`;
 

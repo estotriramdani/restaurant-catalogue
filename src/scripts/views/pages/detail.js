@@ -2,21 +2,30 @@ import DicodingRestaurantSource from '../../data/dicoding-restaurant';
 import CONFIG from '../../globals/config';
 import UrlParser from '../../routes/url-parser';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
-import { createLikeButtonTemplate } from '../template/template-creator';
+import removePreloader from '../../utils/remove-preloader';
 
 const Detail = {
   async render() {
     return `
     <div class="restaurant"></div>
     <div id="likeButtonContainer"></div>
-
+    <div class="preloader"><div id="loading"></div></div>
     `;
   },
 
   async afterRender() {
+    removePreloader();
+
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await DicodingRestaurantSource.detailRestaurant(url.id);
     const restaurantDetailContainer = document.querySelector('.restaurant');
+
+    console.log(restaurant);
+    if (restaurant.restaurant.name == undefined) {
+      restaurantDetailContainer.innerHTML = `
+        <h2 style="color: #443850; text-align: center;">Go Like Some Restaurants!</h2>
+      `;
+    }
 
     const exploreTitle = document.querySelector('.explore-title');
     const exploreSubtitle = document.querySelector('.explore-subtitle');

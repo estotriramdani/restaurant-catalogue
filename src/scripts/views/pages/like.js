@@ -1,14 +1,18 @@
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import CONFIG from '../../globals/config';
+import removePreloader from '../../utils/remove-preloader';
 
 const Like = {
   async render() {
     return `
     <div class="restaurant-list"></div>
+    <div class="preloader"><div id="loading"></div></div>
     `;
   },
 
   async afterRender() {
+    removePreloader();
+
     const restaurants = await FavoriteRestaurant.getAllRestaurants();
     const restaurantsContainer = document.querySelector('.restaurant-list');
 
