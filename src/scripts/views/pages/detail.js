@@ -20,8 +20,7 @@ const Detail = {
     const restaurant = await DicodingRestaurantSource.detailRestaurant(url.id);
     const restaurantDetailContainer = document.querySelector('.restaurant');
 
-    console.log(restaurant);
-    if (restaurant.restaurant.name == undefined) {
+    if (restaurant.restaurant.name === undefined) {
       restaurantDetailContainer.innerHTML = `
         <h2 style="color: #443850; text-align: center;">Go Like Some Restaurants!</h2>
       `;
@@ -37,6 +36,7 @@ const Detail = {
       <img
         src="${CONFIG.BASE_IMAGE_URL}${restaurant.restaurant.pictureId}"
         alt="${restaurant.restaurant.name}"
+        crossorigin="anonymous"
       />
     </div>
     <div class="restaurant-detail">
@@ -76,6 +76,25 @@ const Detail = {
             </svg>  
             ${restaurant.restaurant.address}
             </p>
+          </div>
+          <div class="restaurant-detail__categories" style="text-align: left!important;">
+            <p><strong>Top 3 Food!</strong> <br> 
+            1. ${restaurant.restaurant.menus.foods[0].name} <br> 
+            2. ${restaurant.restaurant.menus.foods[1].name} <br>
+            3. ${restaurant.restaurant.menus.foods[2].name} <br>
+            </p>
+            <p><strong>Top 3 Drinks!</strong> <br> 
+            1. ${restaurant.restaurant.menus.drinks[0].name} <br> 
+            2. ${restaurant.restaurant.menus.drinks[1].name} <br>
+            3. ${restaurant.restaurant.menus.drinks[2].name} <br>
+            </p>
+          </div>
+          <div class="restaurant-detail__description">
+            <small>Customer Review</small>  
+            <p>
+            ${restaurant.restaurant.customerReviews[0].review}
+            </p>
+            <small style="text-align: right;">By ${restaurant.restaurant.customerReviews[0].name} on ${restaurant.restaurant.customerReviews[0].date}</small>  
           </div>
           <div class="cta">
             <a href="#/">HOME</a>

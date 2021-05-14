@@ -19,7 +19,7 @@ const AllRestaurant = {
     const exploreSubtitle = document.querySelector('.explore-subtitle');
 
     exploreTitle.innerHTML = 'Explore Restaurant';
-    exploreSubtitle.innerHTML = `Find  Restaurant You Love The Most`;
+    exploreSubtitle.innerHTML = 'Find  Restaurant You Love The Most';
 
     restaurants.forEach((restaurant) => {
       restaurantsContainer.innerHTML += `
@@ -28,6 +28,7 @@ const AllRestaurant = {
           <img
             src="${CONFIG.BASE_IMAGE_URL}${restaurant.pictureId}"
             alt="Nama restoran ini adalah ${restaurant.name}"
+            crossorigin="anonymous"
           />
         </div>
         <div class="card-heading">

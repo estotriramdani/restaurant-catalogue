@@ -19,7 +19,7 @@ const Like = {
     const exploreTitle = document.querySelector('.explore-title');
     const exploreSubtitle = document.querySelector('.explore-subtitle');
     exploreTitle.innerHTML = 'Your Favorite Restaurant';
-    exploreSubtitle.innerHTML = `See The List Then Visit Them!`;
+    exploreSubtitle.innerHTML = 'See The List Then Visit Them!';
 
     if (Object.keys(restaurants).length < 1) {
       restaurantsContainer.innerHTML = `
@@ -34,6 +34,7 @@ const Like = {
           <img
             src="${CONFIG.BASE_IMAGE_URL}${restaurant.pictureId}"
             alt="Nama restoran ini adalah ${restaurant.name}"
+            crossorigin="anonymous"
           />
         </div>
         <div class="card-heading">
