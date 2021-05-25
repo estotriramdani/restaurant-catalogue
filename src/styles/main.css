@@ -193,8 +193,10 @@ button[name='drawer'] {
 
 .card-img {
   overflow: hidden;
-  width: 100%;
-  height: 300px;
+  width: 400px;
+  max-height: 300px;
+  min-height: 100px;
+  background-color: #d4d4d4;
 }
 
 .card-img img {
@@ -233,7 +235,7 @@ button[name='drawer'] {
 .card-body {
   position: relative;
   padding: 20px;
-  height: 280px;
+  max-height: 280px;
   overflow: hidden;
 }
 
@@ -575,4 +577,20 @@ footer {
 
 .d-none {
   display: none;
+}
+
+.splash {
+  animation: splash 3s ease-in-out infinite;
+}
+
+@keyframes splash {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
 }

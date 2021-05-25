@@ -2,11 +2,11 @@ const removePreloader = () => {
   const preloader = document.querySelector('.preloader');
   setTimeout(() => {
     preloader.classList.add('gone');
-  }, 900);
+  }, 700);
 
   setTimeout(() => {
     preloader.classList.add('d-none');
-  }, 1000);
+  }, 800);
 };
 
 export default removePreloader;

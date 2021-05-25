@@ -32,7 +32,7 @@ const Like = {
       <div class="card">
         <div class="card-img">
           <img
-            src="${CONFIG.BASE_IMAGE_URL}${restaurant.pictureId}"
+            src="${CONFIG.BASE_IMAGE_URL}medium/${restaurant.pictureId}"
             alt="Nama restoran ini adalah ${restaurant.name}"
             crossorigin="anonymous"
           />

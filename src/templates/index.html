@@ -33,22 +33,39 @@
         </svg>
         NGUYAH App
       </h1>
-      <button name="drawer" id="drawer-button" class="drawer-icon">•••</button>
+      <button
+        name="drawer"
+        id="drawer-button"
+        aria-label="menu"
+        class="drawer-icon"
+      >
+        •••
+      </button>
     </header>
     <nav id="drawer">
       <ul class="nav-item">
         <li class="nav-list"><a href="#/">Home</a></li>
-        <li class="nav-list"><a href="#/favorite">Favorite</a></li>
-        <li class="nav-list"><a href="http://esto.my.id">About</a></li>
+        <li class="nav-list">
+          <a href="#/favorite">Favorite</a>
+        </li>
+        <li class="nav-list">
+          <a href="http://esto.my.id">About</a>
+        </li>
       </ul>
     </nav>
     <div class="hero">
       <p class="explore-text">
         Don't worry. We have all your <strong>needs</strong>!
       </p>
-      <img src="./images/heros/hero-image_2.jpg" alt="" />
+      <picture>
+        <source
+          media="(max-width: 600px)"
+          srcset="./images/heros/hero-image_2-small.jpg"
+        />
+        <img src="./images/heros/hero-image_2-large.jpg" alt="" />
+      </picture>
     </div>
-    <main id="main">
+    <main id="main" style="min-height: 85vh">
       <div class="sub-heading">
         <p>
           <svg

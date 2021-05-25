@@ -1,4 +1,5 @@
 import DicodingRestaurantSource from '../../data/dicoding-restaurant';
+import FavoriteRestaurant from '../../data/favorite-restaurant';
 import CONFIG from '../../globals/config';
 import UrlParser from '../../routes/url-parser';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
@@ -7,9 +8,9 @@ import removePreloader from '../../utils/remove-preloader';
 const Detail = {
   async render() {
     return `
+    <div class="preloader"><div id="loading"></div></div>
     <div class="restaurant"></div>
     <div id="likeButtonContainer"></div>
-    <div class="preloader"><div id="loading"></div></div>
     `;
   },
 
@@ -20,21 +21,14 @@ const Detail = {
     const restaurant = await DicodingRestaurantSource.detailRestaurant(url.id);
     const restaurantDetailContainer = document.querySelector('.restaurant');
 
-    if (restaurant.restaurant.name === undefined) {
-      restaurantDetailContainer.innerHTML = `
-        <h2 style="color: #443850; text-align: center;">Go Like Some Restaurants!</h2>
-      `;
-    }
-
     const exploreTitle = document.querySelector('.explore-title');
     const exploreSubtitle = document.querySelector('.explore-subtitle');
     exploreSubtitle.innerHTML = `${restaurant.restaurant.categories[0].name} - ${restaurant.restaurant.categories[1].name}`;
     exploreTitle.innerHTML = restaurant.restaurant.name;
-
     restaurantDetailContainer.innerHTML = `
     <div class="restaurant-img">
       <img
-        src="${CONFIG.BASE_IMAGE_URL}${restaurant.restaurant.pictureId}"
+        src="${CONFIG.BASE_IMAGE_URL}medium/${restaurant.restaurant.pictureId}"
         alt="${restaurant.restaurant.name}"
         crossorigin="anonymous"
       />
@@ -105,6 +99,7 @@ const Detail = {
 
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      favoriteRestaurants: FavoriteRestaurant,
       restaurant: restaurant.restaurant,
     });
   },
