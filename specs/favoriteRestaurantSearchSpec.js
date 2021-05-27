@@ -1,9 +1,12 @@
+/* eslint-disable class-methods-use-this */
 import FavoriteRestaurantSearchPresenter from '../src/scripts/views/pages/liked-restaurants/favorite-restaurant-search-presenter';
 import FavoriteRestaurant from '../src/scripts/data/favorite-restaurant';
+import FavoriteRestaurantSearchView from '../src/scripts/views/pages/liked-restaurants/favorite-restaurant-search-view';
 
 describe('Searching restaurants', () => {
   let presenter;
   let favoriteRestaurants;
+  let view;
 
   const searchRestaurants = (query) => {
     const queryElement = document.getElementById('query');
@@ -12,21 +15,15 @@ describe('Searching restaurants', () => {
   };
 
   const setRestaurantSearchContainer = () => {
-    document.body.innerHTML = `
-    <div id="restaurant-search-container">
-        <input id="query" type="text">
-        <div class="restaurant-result-container">
-            <ul class="restaurants">
-            </ul>
-        </div>
-    </div>
-    `;
+    view = new FavoriteRestaurantSearchView();
+    document.body.innerHTML = view.getTemplate();
   };
 
   const constructPresenter = () => {
     favoriteRestaurants = spyOnAllFunctions(FavoriteRestaurant);
     presenter = new FavoriteRestaurantSearchPresenter({
       favoriteRestaurants,
+      view,
     });
   };
 
@@ -36,29 +33,22 @@ describe('Searching restaurants', () => {
   });
 
   describe('When query is not empty', () => {
-    it('should be able to capture the query typed by the user', () => {
+    it('should show - when the restaurant returned does not contain a title', (done) => {
+      document
+        .getElementById('restaurant-search-container')
+        .addEventListener('restaurants:searched:updated', () => {
+          const restaurantTitles =
+            document.querySelectorAll('.restaurant__title');
+          expect(restaurantTitles.item(0).textContent).toEqual('-');
+
+          done();
+        });
+
+      favoriteRestaurants.searchRestaurants
+        .withArgs('restaurant a')
+        .and.returnValues([{ id: 444 }]);
+
       searchRestaurants('restaurant a');
-
-      expect(presenter.latestQuery).toEqual('restaurant a');
-    });
-
-    it('should ask the model to search for liked restaurants', () => {
-      searchRestaurants('restaurant a');
-
-      expect(favoriteRestaurants.searchRestaurants).toHaveBeenCalledWith(
-        'restaurant a'
-      );
-    });
-
-    it('should show the found restaurants', () => {
-      presenter._showFoundRestaurants([{ id: 1 }]);
-      expect(document.querySelectorAll('.restaurant').length).toEqual(1);
-
-      presenter._showFoundRestaurants([
-        { id: 1, title: 'Satu' },
-        { id: 2, title: 'Dua' },
-      ]);
-      expect(document.querySelectorAll('.restaurant').length).toEqual(2);
     });
 
     it('should show the title of the found restaurants', () => {
@@ -160,6 +150,7 @@ describe('Searching restaurants', () => {
 
       searchRestaurants('restaurant a');
     });
+
     it('should not show any restaurant', (done) => {
       document
         .getElementById('restaurant-search-container')

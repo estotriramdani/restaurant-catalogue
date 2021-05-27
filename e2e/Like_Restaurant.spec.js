@@ -1,10 +1,25 @@
-Feature('Like Restaurant');
+Feature('Liking Restaurants');
 
 Before(({ I }) => {
-  I.amOnPage('/#/favorite');
+  I.amOnPage('/');
 });
 
-Scenario('showing empty liked restaurants', ({ I }) => {
-  I.seeElement('.restaurants');
-  I.see('Tidak ada restoran untuk ditampilkan');
+After(({ I }) => {
+  I.amOnPage('/');
+  I.see('Explore Restaurant', '.explore-title');
+});
+
+Scenario('liking a restaurant', ({ I }) => {
+  I.seeElement('.card-button a');
+  I.click(locate('.card-button a').first());
+  I.seeElement('[aria-label="like this restaurant"]');
+  I.click('[aria-label="like this restaurant"]');
+});
+
+Scenario('unliking restaurant', ({ I }) => {
+  I.amOnPage('/#/favorite');
+  I.seeElement('.card-button a');
+  I.click(locate('.card-button a').first());
+  I.seeElement('[aria-label="unlike this restaurant"]');
+  I.click('[aria-label="unlike this restaurant"]');
 });
